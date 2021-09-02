@@ -1,0 +1,19 @@
+name: 'Binary Dependency Check'
+description: 'Check binary dependencies to ensure workflow proper operation'
+author: 'Mitigram'
+
+inputs:
+  dependencies:
+    description: 'List of binaries to check for presence'
+    required: true
+    default: ''
+  options:
+    description: 'Additional options to depcheck, -v to print out path of found binaries'
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/depcheck.sh -s ${{ inputs.options }} -- '${{ inputs.dependencies }}'
+      shell: bash

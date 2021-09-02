@@ -1,0 +1,12 @@
+name: test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: verify
+        uses: ./
+        with:
+          dependencies: |
+            bash
+            ls
