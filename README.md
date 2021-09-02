@@ -1,13 +1,18 @@
 # Binary Dependency Check
 
 This action will check the presence of a list of binaries to ensure that your
-job/workflow will be able to perform all necessary operations. This is
-particularily useful for making sure self-hosted runners are populated with the
-right set of tools for the job to complete. You will probably want to use this
-action in the early steps of your jobs.
+job/workflow will be able to perform all necessary operations at the runner. The
+action fails as soon as one of the binaries cannot be found, it will print out
+an error message that will be available in the logs. You will probably want to
+use this action in the early steps of your jobs in order to fail as soon as
+possible.
 
-The action fails as soon as one of the binaries cannot be found, it will print
-out an error message that will be available in the logs.
+This action is particularily useful for making sure self-hosted runners in
+heterogeneous environment are populated with the right set of tools for the job
+to complete. The action makes visible your binary dependencies, and facilitate
+picking [existing] runners or when creating new ones.
+
+  [existing]: https://github.com/jonico/awesome-runners
 
 ## Usage
 
